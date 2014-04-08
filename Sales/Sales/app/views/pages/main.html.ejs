@@ -1,12 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
-    <link rel="stylesheet" href="/stylesheets/screen.css" />
+    <title><%= test %></title>
+    <link rel="stylesheet" href="/stylesheets/application.css" />
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
+	<script src="http://code.jquery.com/jquery-latest.min.js" />
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
   </head>
-  <body>
-    <h1><%= title %></h1>
-	<h2>test <%= derp %></h2>
-    <p>Welcome aboard! Visit <a href="http://locomotivejs.org/">locomotivejs.org</a> for details.</p>
+  <body class="row">
+	<div class="main-heading col-sm-offset-1 col-sm-10">
+		Welcome to The Swarm
+	</div>
+	<div class="menu col-sm-offset-1 col-sm-10">
+		<% for(var i=0; i<products.length; i++) {%>
+			<div class="menu-item col-sm-1"><%= products[i].name %> </div>
+		<% } %>
+	</div>
   </body>
 </html>
