@@ -6,15 +6,35 @@
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
 	<script src="http://code.jquery.com/jquery-latest.min.js" />
 	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+	<script src="http://knockoutjs.com/downloads/knockout-3.1.0.js"></script>
   </head>
-  <body class="row">
-	<div class="main-heading col-sm-offset-1 col-sm-10">
-		Welcome to The Swarm
-	</div>
-	<div class="menu col-sm-offset-1 col-sm-10">
-		<% for(var i=0; i<products.length; i++) {%>
-			<div class="menu-item col-sm-1"><%= products[i].name %> </div>
-		<% } %>
+  <body>
+	<div class="container">
+		<div class="row">
+		<div class="main-heading col-sm-12">
+			Welcome to The Swarm
+		</div>
+		<div class="menu" data-bind="foreach: products">
+			<div class="menu-item col-sm-1"><span data-bind="text: $data.name" /></div>
+		</div>
+		<div class="summary col-sm-12">
+			Select an order
+		</div>
+		</div>
 	</div>
   </body>
 </html>
+
+<script>
+	var vm = function() {
+		var self = this;
+		self.products = ko.observableArray(JSON.parse('<%- JSON.stringify(products) %>'));
+		self.selectedProducts = ko.observableArray([]);
+		
+		self.selectProduct = function (product) {
+			console.log(product);
+		}
+	}
+	
+	ko.applyBindings(new vm());
+</script>
