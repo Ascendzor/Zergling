@@ -15,10 +15,32 @@
 				Welcome to The Swarm
 			</div>
 			<div class="menu" data-bind="foreach: products">
-				<div class="menu-item col-sm-1"><span data-bind="text: $data.name" /></div>
+				<div class="menu-item col-sm-1" data-bind="click: $parent.selectProduct"><span data-bind="text: $data.name" /></div>
 			</div>
 			<div class="summary col-sm-12">
-				Select your orders
+				<span data-bind="visible: selectedProducts().length == 0">Select your orders</span>
+				<div data-bind="foreach: selectedProducts" class='order-items'>
+					<div data-bind="click: $parent.deSelectProduct">
+						<div class="col-sm-offset-5 col-sm-1">
+							<span data-bind="text: $data.name" />
+						</div>
+						<div class="col-sm-1">
+							<span data-bind="text: $data.price" />
+						</div>
+					</div>
+				</div>
+			</div>
+			<div>
+				<div class="col-sm-offset-5 col-sm-4">
+					Total price: $<span data-bind="text: totalPrice()" />
+				</div>
+				<div class="col-sm-offset-4"></div>
+				<div class="col-sm-offset-3 col-sm-3 btn btn-primary btn-lg" data-bind="click: reserveOrder">
+					Reserve order
+				</div>
+				<div class="col-sm-3 btn btn-primary btn-lg" data-bind="click: placeOrder">
+					Place order
+				</div>
 			</div>
 		</div>
 	</div>
@@ -31,8 +53,33 @@
 		self.products = ko.observableArray(JSON.parse('<%- JSON.stringify(products) %>'));
 		self.selectedProducts = ko.observableArray([]);
 		
+		var productId = 0;
+		
 		self.selectProduct = function (product) {
-			console.log(product);
+			if(self.selectedProducts().length < 20) {
+				self.selectedProducts.push({name: product.name, price: product.price});
+			}
+		}
+		
+		self.deSelectProduct = function (product) {
+			var index = self.selectedProducts().indexOf(product);
+			self.selectedProducts.splice(index, 1);
+		}
+		
+		self.totalPrice = ko.computed(function () {
+			var sum = 0.00;
+			self.selectedProducts().forEach(function(product) {
+				sum += parseFloat(product.price);
+			});
+			return sum;
+		});
+		
+		self.reserveOrder = function () {
+			console.log('reserve order');
+		}
+		
+		self.placeOrder = function () {
+			console.log('place order');
 		}
 	}
 	
