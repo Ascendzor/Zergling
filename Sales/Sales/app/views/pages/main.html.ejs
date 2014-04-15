@@ -20,7 +20,7 @@
 			<div class="summary col-sm-12">
 				<span data-bind="visible: selectedProducts().length == 0">Select your orders</span>
 				<div data-bind="foreach: selectedProducts" class='order-items'>
-					<div data-bind="click: $parent.deSelectProduct">
+					<div class="selected-menu-item" data-bind="click: $parent.deSelectProduct">
 						<div class="col-sm-offset-5 col-sm-1">
 							<span data-bind="text: $data.name" />
 						</div>
