@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Product Service</title>
+    <link rel="stylesheet" href="/stylesheets/application.css" />
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
+	<script src="http://code.jquery.com/jquery-latest.min.js" />
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+	<script src="http://knockoutjs.com/downloads/knockout-3.1.0.js"></script>
+  </head>
+  <body>
+	<div class="container">
+		<div class="row">
+			<span>meal view</span>
+			<span data-bind="text: meals()[0].name"></span>
+			<span data-bind="text: drinks()[0].name"></span>
+			<span data-bind="text: platters()[0].name"></span>
+		</div>
+	</div>
+  </body>
+</html>
+
+<script>
+	var vm = function() {
+		var self = this;
+		console.log('<%- JSON.stringify(meals) %>');
+		console.log('<%- JSON.stringify(drinks) %>');
+		console.log('<%- JSON.stringify(platters) %>');
+		self.meals = ko.observableArray(JSON.parse('<%- JSON.stringify(meals) %>'));
+		self.drinks = ko.observableArray(JSON.parse('<%- JSON.stringify(drinks) %>'));
+		self.platters = ko.observableArray(JSON.parse('<%- JSON.stringify(platters) %>'));
+	}
+	
+	ko.applyBindings(new vm());
+</script>
