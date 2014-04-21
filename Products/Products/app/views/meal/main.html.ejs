@@ -11,10 +11,9 @@
   <body>
 	<div class="container">
 		<div class="row">
-			<span>meal view</span>
-			<span data-bind="text: meals()[0].name"></span>
-			<span data-bind="text: drinks()[0].name"></span>
-			<span data-bind="text: platters()[0].name"></span>
+			<div class="main-heading col-sm-12">
+				All Meals
+			</div>
 		</div>
 	</div>
   </body>
@@ -23,12 +22,7 @@
 <script>
 	var vm = function() {
 		var self = this;
-		console.log('<%- JSON.stringify(meals) %>');
-		console.log('<%- JSON.stringify(drinks) %>');
-		console.log('<%- JSON.stringify(platters) %>');
 		self.meals = ko.observableArray(JSON.parse('<%- JSON.stringify(meals) %>'));
-		self.drinks = ko.observableArray(JSON.parse('<%- JSON.stringify(drinks) %>'));
-		self.platters = ko.observableArray(JSON.parse('<%- JSON.stringify(platters) %>'));
 	}
 	
 	ko.applyBindings(new vm());

@@ -1,0 +1,26 @@
+.main-heading {
+	width: 90%;
+	background-color: #9f00a7;
+	height: 100px;
+	color: white;
+	font-size: 70px;
+	text-align: center;
+}
+
+.menu-item {
+	background-color: #AAA;
+}
+
+.menu-item:hover {
+	background-color: #EEE;
+	cursor: pointer;
+}
+
+.summary {
+	text-align: center;
+	height: 500px;
+}
+
+.selected-menu-item:hover {
+	background-color: #EEE;
+}
