@@ -23,4 +23,11 @@ mealController.removeMeal = function() {
 	self.res.send(200);
 }
 
+mealController.getAllMeals = function() {
+	var self = this;
+	mealModel.find({}, function(err, meals) {
+		return self.res.json(meals);
+	});
+}
+
 module.exports = mealController;

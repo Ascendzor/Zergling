@@ -9,4 +9,5 @@ module.exports = function routes() {
   this.root('meal#main');
   this.match('addMeal', 'meal#addMeal', { via: 'post' });
   this.match('meal/removeMeal', 'meal#removeMeal', {via: 'post'});
+  this.match('meal/getAllMeals', 'meal#getAllMeals');
 }
