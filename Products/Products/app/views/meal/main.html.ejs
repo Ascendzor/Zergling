@@ -52,7 +52,10 @@
 			$.ajax({
 				type: 'POST',
 				url: 'meal/removeMeal',
-				data: {name: meal.name}
+				data: {name: meal.name},
+				success: function() {
+					location.reload();
+				}
 			});
 		}
 	}
