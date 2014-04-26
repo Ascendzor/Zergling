@@ -8,17 +8,12 @@ mealController.main = function() {
 	this.meals = {};
 	mealModel.find({}, function (err, meals) {
 		self.meals = meals;
-		console.log('re-rendering?');
 		console.log(meals);
 		self.render();
 	});
 }
 
 mealController.addMeal = function() {
-	console.log('===============================');
-	console.log(this.param('name'));
-	console.log(this.param('price'));
-	console.log(this.param('grams'));
 	mealModel.save({name: this.param('name'), price: this.param('price'), grams: this.param('grams')});
 	return this.redirect(this.urlFor({ action: 'main' }));
 }

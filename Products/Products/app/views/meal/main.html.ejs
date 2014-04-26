@@ -18,10 +18,13 @@
 				<div class="col-sm-12">
 					All meals on the menu:
 				</div>
-				<div class="col-sm-2" data-bind="foreach: meals">
-					<span data-bind="text: $data.name"></span>
-					<span data-bind="text: $data.price"></span>
-					<span data-bind="text: $data.grams"></span>
+				<span class="col-sm-4">Name</span>
+				<span class="col-sm-4">Price</span>
+				<span class="col-sm-4">Grams</span>
+				<div data-bind="foreach: meals">
+					<span data-bind="text: $data.name" class="col-sm-4"></span>
+					<span data-bind="text: $data.price" class="col-sm-4"></span>
+					<span data-bind="text: $data.grams" class="col-sm-4"></span>
 				</div>
 			</div>
 			<div class="col-sm-6">
