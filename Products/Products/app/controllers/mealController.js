@@ -18,4 +18,12 @@ mealController.addMeal = function() {
 	return this.redirect(this.urlFor({ action: 'main' }));
 }
 
+mealController.removeMeal = function() {
+	console.log('remove meal called');
+	console.log(this.param('name'));
+	var self = this;
+	mealModel.remove({name: this.param('name')});
+	self.res.send(200);
+}
+
 module.exports = mealController;

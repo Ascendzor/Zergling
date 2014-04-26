@@ -22,9 +22,11 @@
 				<span class="col-sm-4">Price</span>
 				<span class="col-sm-4">Grams</span>
 				<div data-bind="foreach: meals">
-					<span data-bind="text: $data.name" class="col-sm-4"></span>
-					<span data-bind="text: $data.price" class="col-sm-4"></span>
-					<span data-bind="text: $data.grams" class="col-sm-4"></span>
+					<div data-bind="click: $parent.removeMeal">
+						<span data-bind="text: $data.name" class="col-sm-4"></span>
+						<span data-bind="text: $data.price" class="col-sm-4"></span>
+						<span data-bind="text: $data.grams" class="col-sm-4"></span>
+					</div>
 				</div>
 			</div>
 			<div class="col-sm-6">
@@ -45,6 +47,15 @@
 	var vm = function() {
 		var self = this;
 		self.meals = ko.observableArray(JSON.parse('<%- JSON.stringify(meals) %>'));
+		
+		self.removeMeal = function(meal) {
+			console.log(meal);
+			$.ajax({
+				type: 'POST',
+				url: 'meal/removeMeal',
+				data: {name: meal.name}
+			});
+		}
 	}
 	
 	ko.applyBindings(new vm());

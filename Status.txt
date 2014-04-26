@@ -5,6 +5,7 @@ locomotive can mess with the default 'npm install' when installing the dependenc
 npm install mongodb
 npm install mongojs
 
+Current status:
 Products service
 http://products.buildapcforme.co.nz
 

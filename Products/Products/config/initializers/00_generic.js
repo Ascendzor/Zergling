@@ -10,9 +10,8 @@ module.exports = function() {
 	// previous one has completed before the next one executes.
 	
 	var mongoClient = require('mongodb').MongoClient;
-	this.mealModel;
 	
-	var db =require('mongojs').connect('mongodb://127.0.0.1:27017', ['Products']);
+	var db =require('mongojs').connect('mongodb://127.0.0.1:27017');
 	
 	mealModel = db.collection('Meals');
 }
