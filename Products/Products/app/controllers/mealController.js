@@ -1,9 +1,10 @@
 var locomotive = require('locomotive')
   , Controller = locomotive.Controller;
-
+  
 var mealController = new Controller();
 
 mealController.main = function() {
+	console.log('test');
   this.meals = [{name: 'Ratatouille', price: '20.50', grams: '300'}];
   this.render();
 }
