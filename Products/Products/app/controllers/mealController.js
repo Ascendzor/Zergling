@@ -8,7 +8,6 @@ mealController.main = function() {
 	this.meals = {};
 	mealModel.find({}, function (err, meals) {
 		self.meals = meals;
-		console.log(meals);
 		self.render();
 	});
 }
@@ -19,8 +18,6 @@ mealController.addMeal = function() {
 }
 
 mealController.removeMeal = function() {
-	console.log('remove meal called');
-	console.log(this.param('name'));
 	var self = this;
 	mealModel.remove({name: this.param('name')});
 	self.res.send(200);

@@ -49,7 +49,6 @@
 		self.meals = ko.observableArray(JSON.parse('<%- JSON.stringify(meals) %>'));
 		
 		self.removeMeal = function(meal) {
-			console.log(meal);
 			$.ajax({
 				type: 'POST',
 				url: 'meal/removeMeal',

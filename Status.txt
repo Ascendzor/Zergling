@@ -8,6 +8,7 @@ npm install mongojs
 Current status:
 Products service
 http://products.buildapcforme.co.nz
+Products can successfully create and delete Meals, yay
 
 Sales service
 http://sales.buildapcforme.co.nz
