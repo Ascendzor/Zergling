@@ -8,7 +8,8 @@
 }
 
 .menu-item {
-	background-color: #AAA;
+	background-color: #CCC;
+	text-align: center;
 }
 
 .menu-item:hover {

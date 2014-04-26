@@ -15,7 +15,7 @@
 				Welcome to The Swarm
 			</div>
 			<div class="menu" data-bind="foreach: products">
-				<div class="menu-item col-sm-1" data-bind="click: $parent.selectProduct"><span data-bind="text: $data.name" /></div>
+				<div class="menu-item col-sm-4" data-bind="click: $parent.selectProduct"><span data-bind="text: $data.name" /></div>
 			</div>
 			<div class="summary col-sm-12">
 				<span data-bind="visible: selectedProducts().length == 0">Select your orders</span>
