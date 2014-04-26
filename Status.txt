@@ -1,3 +1,10 @@
+Setup:
+Make sure to have mongodb installed on the machine
+
+locomotive can mess with the default 'npm install' when installing the dependencies so here are a few I found it didn't install
+npm install mongodb
+npm install mongojs
+
 Products service
 http://products.buildapcforme.co.nz
 

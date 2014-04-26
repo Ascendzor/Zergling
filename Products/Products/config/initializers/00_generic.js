@@ -10,13 +10,9 @@ module.exports = function() {
 	// previous one has completed before the next one executes.
 	
 	var mongoClient = require('mongodb').MongoClient;
-	var model;
+	this.mealModel;
 	
-	console.log('connecting?');
-	mongoClient.connect('mongodb://127.0.0.1:27017/meals', function (err, db) {
-		console.log('tried to connect to mongo');
-		if(err) throw err;
-		model = db.collection('meals');
-		console.log('le connection?');
-	});
+	var db =require('mongojs').connect('mongodb://127.0.0.1:27017', ['Products']);
+	
+	mealModel = db.collection('Meals');
 }
