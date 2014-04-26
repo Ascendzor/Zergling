@@ -7,4 +7,5 @@
 // information.
 module.exports = function routes() {
   this.root('meal#main');
+  this.match('addMeal', 'meal#addMeal', { via: 'post' });
 }

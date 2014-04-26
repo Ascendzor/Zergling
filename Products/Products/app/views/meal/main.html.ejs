@@ -14,6 +14,25 @@
 			<div class="main-heading col-sm-12">
 				All Meals
 			</div>
+			<div class="col-sm-6 row">
+				<div class="col-sm-12">
+					All meals on the menu:
+				</div>
+				<div class="col-sm-2" data-bind="foreach: meals">
+					<span data-bind="text: $data.name"></span>
+					<span data-bind="text: $data.price"></span>
+					<span data-bind="text: $data.grams"></span>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				Add a new meal:
+				<form action="/addMeal" method="POST">
+					<input class="form-control" name="name" placeholder="Name" />
+					<input class="form-control" name="price" placeholder="Price" />
+					<input class="form-control" name="grams" placeholder="grams" />
+					<button class="btn btn-success" type="submit">Create Meal</button>
+				</form>
+			</div>
 		</div>
 	</div>
   </body>
