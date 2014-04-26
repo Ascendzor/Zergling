@@ -13,7 +13,7 @@ mealController.addMeal = function() {
 	console.log(this.param('name'));
 	console.log(this.param('price'));
 	console.log(this.param('grams'));
-	this.res.send(200);
+	return this.redirect(this.urlFor({ action: 'main' }));
 }
 
 module.exports = mealController;
