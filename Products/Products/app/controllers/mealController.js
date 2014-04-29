@@ -15,8 +15,6 @@ mealController.main = function() {
 }
 
 mealController.addMeal = function() {
-	mealModel.remove({name: 'test\'zor'});
-	mealModel.remove({name: 'test"again'});
 	mealModel.save({name: this.param('name'), price: this.param('price'), grams: this.param('grams')});
 	return this.redirect(this.urlFor({ action: 'main' }));
 }
