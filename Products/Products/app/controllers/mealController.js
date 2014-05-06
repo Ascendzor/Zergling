@@ -8,7 +8,6 @@ var mealController = new Controller();
 mealController.main = function() {
 	var self = this;
 	this.meals = {};
-	mealModel.remove({name: 'shepherd\'s pie'});
 	mealModel.find({}, function (err, meals) {
 		self.meals = meals;
 		self.render();
