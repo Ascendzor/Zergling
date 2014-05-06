@@ -21,6 +21,11 @@ pagesController.main = function() {
 			self.render();
 		});
 	});
+	request.on('error', function(error) {
+  		console.log('le error T.T');
+  		self.products = null;
+  		self.render();
+	});
 	request.end();
 }
 

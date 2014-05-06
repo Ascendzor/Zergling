@@ -14,6 +14,9 @@
 			<div class="main-heading col-sm-12">
 				Welcome to The Swarm
 			</div>
+			<div data-bind="visible: products().length == 0">
+				The Product service is down so we can't show you the menu, but you can still make a reservation or be seated right away!
+			</div>
 			<div class="menu" data-bind="foreach: products">
 				<div class="menu-item col-sm-4" data-bind="click: $parent.selectProduct"><span data-bind="text: $data.name" /></div>
 			</div>
